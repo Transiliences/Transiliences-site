@@ -161,7 +161,7 @@ export default function Page() {
 
           <div className="mt-14 grid gap-8 md:grid-cols-2">
             {references.map((title) => (
-              <a key={title} href="#" className="group relative min-h-[250px] overflow-hidden bg-[#8d8d98] p-8 text-white md:min-h-[320px]">
+              <a key={title} href={`/references/${title.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`} className="group relative min-h-[250px] overflow-hidden bg-[#8d8d98] p-8 text-white md:min-h-[320px]">
                 <div className="absolute inset-0 opacity-25" style={{ backgroundImage: "radial-gradient(#ffffff 0.7px, transparent 0.7px)", backgroundSize: "7px 7px" }} />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent" />
                 <div className="relative flex h-full min-h-[190px] flex-col justify-between md:min-h-[260px]">
